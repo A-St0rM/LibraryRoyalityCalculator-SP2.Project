@@ -4,7 +4,7 @@ public class Author {
 
     private String name;
     private ArrayList<Title> titles = new ArrayList<>();
-
+    Title title;
 
     public Author(String name) {
         this.name = name;
@@ -14,7 +14,15 @@ public class Author {
         titles.add(title);
     }
 
-    public ArrayList<Title> getTitles() {
-        return titles;
+    public float calculateTotalPay(){
+        float total = 0;
+        for(Title title : titles){
+            total += title.calculateRoyality();
+        }
+        return total;
+    }
+
+    public String getName() {
+        return name;
     }
 }
